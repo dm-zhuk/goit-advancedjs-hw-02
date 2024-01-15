@@ -21,9 +21,12 @@ body {
   line-height: 1.5;
 }
 
-img {
-  display: block;
-  max-width: 100%;
+button {
+  padding: 8px auto;
+  font: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: -2px -1px #a9a9aa;
 }
 
 ul {
