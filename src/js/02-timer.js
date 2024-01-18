@@ -31,7 +31,7 @@ flatpickr(date, {
     } else {
       btn.disabled = false;
       iziToast.info({
-        title: 'Good',
+        title: 'Right',
         message: 'now you are good to go 🟢',
         position: 'topCenter',
       });
@@ -83,6 +83,7 @@ function updateTimer(ms) {
       message: 'Now you are done ✅',
       position: 'topCenter',
     });
+    btn.disabled = true;
   }
 
   // Update DOM elements
