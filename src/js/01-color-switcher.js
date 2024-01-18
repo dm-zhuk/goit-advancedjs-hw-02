@@ -1,8 +1,10 @@
-const startButton = document.querySelector('button[data-start]');
-const stopButton = document.querySelector('button[data-stop]');
+const btnStart = document.querySelector('[data-start]');
+const btnStop = document.querySelector('[data-stop]');
 
 // variable to save the interval id
 let intervalId = null;
+
+btnStop.setAttribute('disabled', '');
 
 // func to gen a random color
 function getRandomHexColor() {
@@ -11,20 +13,20 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-// func initiating bg-color change using inline style
-function startColorSwitch() {
-  startButton.disabled = true;
-  intervalId = setInterval(function () {
+// add evt listeners on start btn
+btnStart.addEventListener('click', element => {
+  element.target.setAttribute('disabled', true);
+  btnStop.removeAttribute('disabled');
+
+  intervalId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
   }, 1000);
-}
+});
 
-// func stopping bg-color change
-function stopColorSwitch() {
-  startButton.disabled = false;
+// add evt listeners on stop btn
+btnStop.addEventListener('click', element => {
+  element.target.setAttribute('disabled', true);
+  btnStart.removeAttribute('disabled');
+
   clearInterval(intervalId);
-}
-
-// evt listeners for start/stop btns
-startButton.addEventListener('click', startColorSwitch);
-stopButton.addEventListener('click', stopColorSwitch);
+});
