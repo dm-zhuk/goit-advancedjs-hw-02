@@ -1,7 +1,6 @@
 import flatpickr from 'flatpickr';
-import 'flatpickr/dist/flatpickr.min.css';
-
 import iziToast from 'izitoast';
+import 'flatpickr/dist/flatpickr.min.css';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const date = document.querySelector('#datetime-picker');
@@ -50,6 +49,7 @@ btn.addEventListener('click', () => {
   }, 1000);
 
   btn.disabled = true;
+  date.disabled = true;
 });
 
 function convertMs(ms) {
@@ -84,6 +84,7 @@ function updateTimer(ms) {
       position: 'topCenter',
     });
     btn.disabled = true;
+    date.disabled = false;
   }
 
   // Update DOM elements

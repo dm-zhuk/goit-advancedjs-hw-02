@@ -57,3 +57,8 @@ button:disabled {
     color: #f6f4f4;
     background-color: rgb(111, 111, 111);
 }
+
+#datetime-picker:disabled {
+    color: #f6f4f4;
+    background-color: rgb(111, 111, 111);
+}

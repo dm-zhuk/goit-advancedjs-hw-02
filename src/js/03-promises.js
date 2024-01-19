@@ -16,14 +16,23 @@ function createPromise(position, delay) {
   });
 }
 
-document.querySelector('.form').addEventListener('submit', function (evt) {
+const allFields = document.querySelector('.form');
+const btnSubmit = document.querySelector('button[type="submit"]');
+
+function clearForm() {
+  allFields.reset();
+}
+
+allFields.addEventListener('submit', function (evt) {
   evt.preventDefault();
+
+  btnSubmit.disabled = true;
 
   const firstDelayValue = Number(document.getElementsByName('delay')[0].value);
   const delayStepValue = Number(document.getElementsByName('step')[0].value);
   const amountValue = Number(document.getElementsByName('amount')[0].value);
 
-  for (let i = 1; i < amountValue; i++) {
+  for (let i = 1; i <= amountValue; i++) {
     const delay = firstDelayValue + (i - 1) * delayStepValue;
 
     createPromise(i, delay)
@@ -42,4 +51,8 @@ document.querySelector('.form').addEventListener('submit', function (evt) {
         });
       });
   }
+  setTimeout(() => {
+    clearForm();
+    btnSubmit.disabled = false;
+  }, 10000);
 });
